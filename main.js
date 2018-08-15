@@ -5,7 +5,6 @@ export const UUID = () => {
   return "p" + (S4() + S4() + "-" + S4());
 };
 
-
 class Parser {
   constructor(strings, ...values) {
     this.values_map = [];
@@ -47,7 +46,6 @@ class Parser {
     return container;
   }
 }
-
 
 export const HTML = (strings, ...values) => {
   return new Parser(strings, ...values);
