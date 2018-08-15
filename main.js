@@ -18,7 +18,6 @@ class Parser {
       .map((string, index) => {
         const value = values[index];
         const id = UUID();
-        const events = /(on)\w+/g.exec(string);
         if (typeof value === "function") {
           string = string.concat(`"${id} `);
           this.values_map.push({ id,value });
