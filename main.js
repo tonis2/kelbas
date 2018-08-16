@@ -35,6 +35,12 @@ class Parser {
     return container;
   }
 
+  get parsed() {
+    let parser = new DOMParser();
+    let doc = parser.parseFromString(this.string, "text/html");
+    return doc.body.firstChild;
+  }
+
   add_event_listeners(container) {
     this.values_map.forEach(entry => {
       const element = container.querySelector(`[${entry.id}]`);
