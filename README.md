@@ -15,7 +15,7 @@
 
 * Add script tagg to your HTML file.
 ```HTML
-<script src="https://cdn.rawgit.com/tonis2/kelbas/master/main.js" charset="utf-8"></script>
+<script src="https://unpkg.com/kelbas"></script>
 ```
 
 * Start using the library
