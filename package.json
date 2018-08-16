@@ -1,0 +1,28 @@
+{
+  "name": "kelbas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonis2/kelbas.git"
+  },
+  "keywords": [
+    "webcomponents",
+    "router"
+  ],
+  "author": "tonis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonis2/kelbas/issues"
+  },
+  "homepage": "https://github.com/tonis2/kelbas#readme",
+  "devDependencies": {
+    "rollup-plugin-uglify": "^3.0.0",
+    "rollup": "^0.56.2"
+  }
+}

@@ -1,4 +1,4 @@
-export const UUID = () => {
+const UUID = () => {
   let S4 = () => {
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
   };
@@ -55,3 +55,5 @@ class Parser {
 export const HTML = (strings, ...values) => {
   return new Parser(strings, ...values);
 }
+
+window.HTML = HTML;
