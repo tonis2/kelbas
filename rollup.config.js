@@ -5,6 +5,7 @@ export default {
   plugins: [uglify()],
   output: {
     file: "build/bundle.js",
-    format: "es"
+    format: "umd",
+    name:"kelbas"
   }
 };
