@@ -38,12 +38,13 @@ class Parser {
   get container() {
     let parser = new DOMParser();
     let doc = parser.parseFromString(this.string, "text/html");
-    return doc.body.firstChild;
+    const container = doc.body.firstChild;
+    return this.add_event_listeners(container);
   }
 
   add_event_listeners(container) {
     this.values_map.forEach(entry => {
-      const element = container.querySelector(`[${entry.id}]`);
+      const element = container.outerHTML ? container.parentNode.querySelector(`[${entry.id}]`) : container.querySelector(`[${entry.id}]`);
       const event_type = /(on)\w+/g.exec(element.outerHTML)[0].split("on")[1];
       element.removeAttribute(`on${event_type}`);
       element.addEventListener(event_type, entry.value.bind(this));
