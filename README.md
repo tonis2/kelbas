@@ -6,7 +6,7 @@
 
 ## Features
 
-* Super small only 1kb
+* Super small less than 1kb
 * Includes multiple render possibilites
 * Fast
 * Super easy to use
