@@ -28,14 +28,14 @@ class Parser {
       .reduce((prev, current) => prev + current);
   };
 
-  get content() {
+  get fragment() {
     const template = document.createElement("template");
     template.innerHTML = this.string;
     const container = this.add_event_listeners(template.content.cloneNode(true));
     return container;
   }
 
-  get parsed() {
+  get container() {
     let parser = new DOMParser();
     let doc = parser.parseFromString(this.string, "text/html");
     return doc.body.firstChild;
@@ -52,7 +52,7 @@ class Parser {
   }
 }
 
-export const HTML = (strings, ...values) => {
+function HTML(strings, ...values) {
   return new Parser(strings, ...values);
 }
 

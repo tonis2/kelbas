@@ -1,4 +1,4 @@
-const list = HTML`<span>Test</span>
+const list = window.HTML`<span>Test</span>
                   <span>Test</span>
                   <span>Test</span>`;
 

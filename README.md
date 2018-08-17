@@ -22,5 +22,5 @@
 ```js
 const element =  HTML`<span onclick="${myFunction}">text</span>
                         <span>text</span>`;
-document.body.appendChild(element.content);                        
+document.body.appendChild(element.fragment);                        
 ```
