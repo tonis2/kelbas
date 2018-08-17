@@ -24,3 +24,6 @@ const element =  HTML`<span onclick="${myFunction}">text</span>
                         <span>text</span>`;
 document.body.appendChild(element.fragment);                        
 ```
+
+
+[Check example here!](https://tonis2.github.io/kelbas/)
