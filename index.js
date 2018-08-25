@@ -31,15 +31,21 @@ class Parser {
   get fragment() {
     const template = document.createElement("template");
     template.innerHTML = this.string;
-    const container = this.add_event_listeners(template.content.cloneNode(true));
-    return container;
+    return this.add_event_listeners(template.content.cloneNode(true));
   }
 
   get container() {
     let parser = new DOMParser();
     let doc = parser.parseFromString(this.string, "text/html");
-    const container = doc.body.firstChild;
-    return this.add_event_listeners(container);
+    return this.add_event_listeners(doc.body.firstChild);
+  }
+
+  get svg() {
+    let parser = new DOMParser();
+    const container = this.container;
+    container.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    let doc = parser.parseFromString(container.outerHTML, "image/svg+xml");
+    return doc.documentElement;
   }
 
   add_event_listeners(container) {
