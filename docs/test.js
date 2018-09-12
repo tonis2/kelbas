@@ -22,6 +22,10 @@ const array = HTML`<div id="container">
                       ${["data1", "data2", "data3"].map(item => `<span>${item}</span>`).join("")}
                    </div>`
 
+const array2 = HTML`<div id="container">
+                      ${["data1", "data2", "data3"].map(item => HTML`<span onclick="${click_event}">${item}</span>`.container)}
+                   </div>`
+
 
 document.body.querySelector("#first-example element").appendChild(fragment.fragment);
 
@@ -30,3 +34,5 @@ document.body.querySelector("#second-example element").appendChild(container.con
 document.body.querySelector("#third-example element").appendChild(circle.svg);
 
 document.body.querySelector("#fourth-example element").appendChild(array.container);
+
+document.body.querySelector("#fifth-example element").appendChild(array2.container);

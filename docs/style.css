@@ -73,12 +73,3 @@ example element span {
   background: var(--black);
   height: 50px;
 }
-
-example pre {
-  background: var(--black);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--white);
-  padding: 0 20px;
-}
