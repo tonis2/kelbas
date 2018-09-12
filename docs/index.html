@@ -70,6 +70,24 @@
     <element></element>
   </example>
 
+  <example id="fourth-example">
+    <text>
+      <p>Create a <strong>Array</strong> element</p>
+      <pre>
+        <code>
+        <xmp>
+          const array = HTML`<div id="container">
+                                ${["data1", "data2", "data3"].map(item => `<span>${item}</span>`).join("")}
+                             </div>`
+
+          document.body.appendChild(array.container);
+        </xmp>
+        </code>
+      </pre>
+    </text>
+    <element></element>
+  </example>
+
 </body>
 <!-- <script type="module" src="../index.js"></script> -->
 <script src="https://unpkg.com/kelbas"></script>

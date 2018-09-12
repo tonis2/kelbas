@@ -8,8 +8,6 @@ const UUID = () => {
 class Parser {
   constructor(strings, ...values) {
     this.values_map = [];
-    this.concat_string = this.concat_string.bind(this);
-    this.add_event_listeners = this.add_event_listeners.bind(this);
     this.string = this.concat_string(strings, values);
   }
 
@@ -20,7 +18,10 @@ class Parser {
         const id = UUID();
         if (typeof value === "function") {
           string = string.concat(`"${id} `);
-          this.values_map.push({ id,value });
+          this.values_map.push({
+            id,
+            value
+          });
         }
         if (typeof value === "string") string = `${string}${value || ""}`;
         return string;
@@ -53,7 +54,7 @@ class Parser {
       const element = container.outerHTML ? container.parentNode.querySelector(`[${entry.id}]`) : container.querySelector(`[${entry.id}]`);
       const event_type = /(on)\w+/g.exec(element.outerHTML)[0].split("on")[1];
       element.removeAttribute(`on${event_type}`);
-      element.addEventListener(event_type, entry.value.bind(this));
+      element.addEventListener(event_type, entry.value);
     });
     return container;
   }
@@ -65,4 +66,6 @@ function HTML(strings, ...values) {
 
 window.HTML = HTML;
 
-export {HTML};
+export {
+  HTML
+};
