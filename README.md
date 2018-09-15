@@ -69,4 +69,6 @@ const circle = HTML`<svg height="100" width="100">
 document.body.appendChild(circle.svg); 
 ```
 
+-----
+
 [View live examples here!](https://tonis2.github.io/kelbas/)
