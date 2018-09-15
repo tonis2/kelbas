@@ -8,6 +8,7 @@
 
 * Super small less than 1kb
 * Includes multiple render possibilites
+  (as SVG, fragment, regular Dom).
 * Fast
 * Super easy to use
 
