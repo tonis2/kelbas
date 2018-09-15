@@ -33,6 +33,17 @@ const element1 = HTML`<span class="example1" onclick="${click_event}"><strong>Cl
 
 document.body.appendChild(element1.fragment);
 
+const array = HTML`<div id="container">
+                      ${["data1", "data2", "data3"].map(item => HTML`<span onclick="${click_event}">${item}</span>`.container)}
+                   </div>`
+                   
+                   
+
+document.body.appendChild(array.container);
+```
+##### Creating SVG-s also possible,
+
+```js
 
 const circle = HTML`<svg height="100" width="100">
                       <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
@@ -40,8 +51,6 @@ const circle = HTML`<svg height="100" width="100">
  
  
 document.body.appendChild(circle.svg); 
- 
 ```
-
 
 [Check example here!](https://tonis2.github.io/kelbas/)
