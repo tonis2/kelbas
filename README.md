@@ -33,14 +33,25 @@ const element1 = HTML`<span class="example1" onclick="${click_event}"><strong>Cl
 
 document.body.appendChild(element1.fragment);
 
+```
+
+#### Creating an Array of posts with click events
+```js
+const open_post = () => {
+  window.alert("Open!");
+}
+
 const array = HTML`<div id="container">
-                      ${["data1", "data2", "data3"].map(item => HTML`<span onclick="${click_event}">${item}</span>`.container)}
+                      ${["post1", "post2", "post3"].map(item => HTML`<span onclick="${click_event}">${item}</span>`.container)}
                    </div>`
                    
                    
 
 document.body.appendChild(array.container);
 ```
+
+
+
 ##### Creating SVG-s also possible,
 
 ```js
