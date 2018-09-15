@@ -21,21 +21,29 @@
 
 * Start using the library
 
-#### Examples
+### Examples
+
+----
+
+##### Create a document fragment with list of elements
 ```js
 const click_event = () => {
   window.alert("Click event works!");
 }
 
-const element1 = HTML`<span class="example1" onclick="${click_event}"><strong>Click me!</strong></span>
-                      <span class="example2">Element2</span>`
+const list = HTML`<span onclick="${click_event}"><strong>Click me!</strong></span>
+                      <span>Element2</span>
+                      <span>Element3</span>
+                      <span>Element4</span>
+                      <span>Element5</span>
+                      <span>Element6</span>`
 
 
-document.body.appendChild(element1.fragment);
+document.body.appendChild(list.fragment);
 
 ```
 
-#### Creating an Array of posts with click events
+##### Creating an Array of posts with click events
 ```js
 const open_post = () => {
   window.alert("Open!");
@@ -50,10 +58,7 @@ const array = HTML`<div id="container">
 document.body.appendChild(array.container);
 ```
 
-
-
-##### Creating SVG-s also possible,
-
+##### Creating SVG-s also possible
 ```js
 
 const circle = HTML`<svg height="100" width="100">
