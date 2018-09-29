@@ -1,7 +1,7 @@
 {
   "name": "kelbas",
-  "version": "1.1.6",
-  "description": "",
+  "version": "1.1.7",
+  "description": "Super small JavaScript `template-string` -> DOM creating library.",
   "main": "./build/kelbas.min.js",
   "scripts": {
     "build": "rollup -c rollup.config.js",
