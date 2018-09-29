@@ -62,7 +62,7 @@ class Parser {
     let parser = new DOMParser()
     const container = this.container
     container.setAttribute("xmlns", "http://www.w3.org/2000/svg")
-    let doc = parser.parseFromString(container.outerHTML, "image/svg+xml")
+    let doc = parser.parseFromString(container.outerHTML, "image/svg+xml") 
     return this.place_values(doc.documentElement)
   }
 
