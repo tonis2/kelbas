@@ -19,25 +19,31 @@ class Parser {
       .map((string, index) => {
         const value = values[index]
         const id = UUID()
-        // This means that the value is a event listener type of function
-        if (typeof value === "function") {
-          // Concat id after the on-* event type so we can add the listener there later
-          string = string.concat(`"${id} `)
-          this.values_map.push({
-            id,
-            value
-          })
+        switch (true) {
+          case typeof value === "function":
+            string = string.concat(`"${id} `)
+            this.values_map.push({
+              id,
+              value
+            })
+            break
+          case typeof value === "object":
+            string = string.replace(">", ` ${id} >`)
+            this.values_map.push({
+              id,
+              value
+            })
+            break
+          case value && value.nodeType === 1:
+            this.values_map.push({
+              id,
+              value
+            })
+            break
+          case typeof value === "string":
+            string = `${string}${value || ""}`
+            break
         }
-        // This means that the value is a Array
-        if (typeof value === "object") {
-          // Put an id for the container of the Array, so we can append the value there later
-          string = string.replace(">", ` ${id} >`)
-          this.values_map.push({
-            id,
-            value
-          })
-        }
-        if (typeof value === "string") string = `${string}${value || ""}`
         return string
       })
       .reduce((prev, current) => prev + current)
@@ -79,9 +85,12 @@ class Parser {
         element.addEventListener(event_type, entry.value.bind(this))
         // Remove the on- event, required if we have multiple events on same element
         element.removeAttribute(`on${event_type}`)
-      } else if (typeof entry.value == "object") {
+      } else if (!entry.value.nodeType && typeof entry.value == "object") {
         // Append array of element to the container, useful when displaying a list of elements inside container
         entry.value.forEach(item => element.appendChild(item))
+      } else if (entry.value.nodeType === 1) {
+        //Append regular Dom element to container
+        element.appendChild(entry.value)
       }
     })
     // returns the container back with values added.

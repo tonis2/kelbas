@@ -99,8 +99,32 @@
     <element></element>
   </example>
 
+  <example id="sixth-example">
+    <text>
+      <p>Add one element inside other one</p>
+      <pre><code class="language-javascript">
+        <xmp>
+          const selection = HTML`<select onchange="${select_function}">
+                                    <option value="1">Value 1</option>
+                                    <option value="2">Value 2</option>
+                                    <option value="3">Value 3</option>
+                                  </select>`.container
+
+          const selection_container = HTML`<container id="selection-container">'
+                                              <h3 style="color:black">Select your options</h3>
+                                              ${selection}
+                                           '</container>`
+
+          document.body.appendChild(selection_container.container);
+        </xmp>
+      </code></pre>
+    </text>
+    <element></element>
+  </example>
+
 </body>
-<script src="./modules/kelbas.min.js"></script>
+<!-- <script type="module" src="../index.js"></script> -->
+<script src="unpkg.com/kelbas"></script>
 <script src="./modules/prism.js"></script>
 <script defer src="./test.js"></script>
 </html>

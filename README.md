@@ -53,8 +53,8 @@ const open_post = () => {
 const array = HTML`<div id="container">
                       ${["post1", "post2", "post3"].map(item => HTML`<span onclick="${click_event}">${item}</span>`.container)}
                    </div>`
-                   
-                   
+
+
 
 document.body.appendChild(array.container);
 ```
@@ -65,9 +65,9 @@ document.body.appendChild(array.container);
 const circle = HTML`<svg height="100" width="100">
                       <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
                     </svg>`;
- 
- 
-document.body.appendChild(circle.svg); 
+
+
+document.body.appendChild(circle.svg);
 ```
 
 -----
