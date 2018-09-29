@@ -4,7 +4,7 @@ export default {
   input: "./index.js",
   plugins: [uglify()],
   output: {
-    file: "build/bundle.js",
+    file: "build/kelbas.min.js",
     format: "umd",
     name:"kelbas"
   }
