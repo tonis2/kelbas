@@ -22,6 +22,9 @@
 
 * Start using the library
 
+
+[View live examples here!](https://tonis2.github.io/kelbas/)
+
 ### Examples
 
 ----
@@ -72,4 +75,3 @@ document.body.appendChild(circle.svg);
 
 ------
 
-[View live examples here!](https://tonis2.github.io/kelbas/)
