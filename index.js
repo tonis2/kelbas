@@ -28,7 +28,8 @@ class Parser {
             })
             break
           case typeof value === "object":
-            string = string.replace(">", ` ${id} >`)
+            //Get last '>' of the string line
+            string = `${string.substring(0, string.lastIndexOf(">"))} ${id} >`
             this.values_map.push({
               id,
               value
