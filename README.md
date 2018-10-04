@@ -22,6 +22,9 @@
 
 * Start using the library
 
+
+[View live examples here!](https://tonis2.github.io/kelbas/)
+
 ### Examples
 
 ----
@@ -51,7 +54,7 @@ const open_post = () => {
 }
 
 const array = HTML`<div id="container">
-                      ${["post1", "post2", "post3"].map(item => HTML`<span onclick="${click_event}">${item}</span>`.container)}
+                      ${["post1", "post2", "post3"].map(item => HTML`<span onclick="${open_post}">${item}</span>`.container)}
                    </div>`
 
 
@@ -72,4 +75,3 @@ document.body.appendChild(circle.svg);
 
 ------
 
-[View live examples here!](https://tonis2.github.io/kelbas/)
