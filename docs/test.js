@@ -25,6 +25,7 @@ const array = HTML`<div id="container">
                    </div>`
 
 const array2 = HTML`<div id="container">
+                        <h2>tere</h2>
                       ${["data1", "data2", "data3"].map(item => HTML`<span onclick="${click_event}">${item}</span>`.container)}
                    </div>`
 

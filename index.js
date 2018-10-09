@@ -27,15 +27,9 @@ class Parser {
               value
             })
             break
-          case typeof value === "object":
-            //Get last '>' of the string line
-            string = `${string.substring(0, string.lastIndexOf(">"))} ${id} >`
-            this.values_map.push({
-              id,
-              value
-            })
-            break
-          case value && value.nodeType === 1:
+          case typeof value === "object" || (value && value.nodeType === 1):
+            //Add placeholder for the list item
+            string = `${string} <template ${id}></template>`
             this.values_map.push({
               id,
               value
@@ -86,12 +80,15 @@ class Parser {
         element.addEventListener(event_type, entry.value.bind(this))
         // Remove the on- event, required if we have multiple events on same element
         element.removeAttribute(`on${event_type}`)
-      } else if (!entry.value.nodeType && typeof entry.value == "object") {
-        // Append array of element to the container, useful when displaying a list of elements inside container
-        entry.value.forEach(item => element.appendChild(item))
-      } else if (entry.value.nodeType === 1) {
-        //Append regular Dom element to container
-        element.appendChild(entry.value)
+      } else if (typeof entry.value == "object") {
+        // Swap template placeholder with list object
+        if (!entry.value.children) {
+          const fragment = document.createDocumentFragment()
+          entry.value.forEach(child => fragment.appendChild(child))
+          element.replaceWith(fragment)
+        } else {
+          element.replaceWith(entry.value)
+        }
       }
     })
     // returns the container back with values added.
