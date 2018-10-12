@@ -2,7 +2,7 @@
 
 > Minimalistic JavaScript library to create DOM elements.
 
-![gzip size](http://img.badgesize.io/https://unpkg.com/kelbas/build/bundle.js?compression=gzip)
+![gzip size](http://img.badgesize.io/https://unpkg.com/kelbas/build/kelbas.min.js?compression=gzip)
 
 ## Features
 
