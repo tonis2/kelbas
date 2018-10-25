@@ -101,5 +101,4 @@ function HTML(strings, ...values) {
 }
 
 window.HTML = HTML
-
-export { HTML }
+export default HTML
