@@ -12,7 +12,7 @@
 * Fast
 * Super easy to use
 
-## How to use
+## How to use 
 
 
 * Add script tagg to your HTML file.
