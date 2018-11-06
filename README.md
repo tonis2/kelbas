@@ -6,7 +6,7 @@
 
 ## Features
 
-* Super small less than 1kb
+* Small less than 1kb
 * Includes multiple render possibilites
   (as SVG, fragment, regular Dom).
 * Fast
