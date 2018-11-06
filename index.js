@@ -73,6 +73,7 @@ class Parser {
       // Get the container of the value, we need to make a difference between document.fragment element and regular dom node,
       // if container has no outherHTML that means it`s a fragment.
       const element = container.outerHTML ? container.parentNode.querySelector(`[${entry.id}]`) : container.querySelector(`[${entry.id}]`)
+      if (!element) throw new Error('Warning function must be defined between parentheses for example "${calledFunction}"')
       if (typeof entry.value == "function") {
         // Find onclick, onmouseover .. etc strings values so we can add event listeners to them.
         const event_type = /(on)\w+/g.exec(element.outerHTML)[0].split("on")[1]
