@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "format": "find ./index.js | xargs prettier  --write",
-    "test": "browserify ./tests/test.js | run-headless | tap-diff"
+    "test": "browserify ./tests/test.js | tape-run | tap-diff"
   },
   "repository": {
     "type": "git",
@@ -29,9 +29,11 @@
     "prettier": "1.14.3",
     "puppeteer": "latest",
     "rollup": "^0.56.2",
-    "tape":"latest",
+    "tape": "latest",
     "rollup-plugin-uglify": "^3.0.0",
-    "run-headless": "^2.0.1",
     "tap-diff": "^0.1.1"
+  },
+  "dependencies": {
+    "tape-run": "^4.0.0"
   }
 }

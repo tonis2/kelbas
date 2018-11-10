@@ -27,4 +27,3 @@ test("Test click events", t => {
   t.end()
 })
 
-test.onFinish(window.__close__)
