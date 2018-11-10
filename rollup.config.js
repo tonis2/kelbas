@@ -6,7 +6,7 @@ export default [
     plugins: [uglify()],
     output: {
       file: "build/kelbas.min.js",
-      format: "cjs",
+      format: "umd",
       name: "kelbas"
     }
   },
