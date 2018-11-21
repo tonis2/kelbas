@@ -54,7 +54,7 @@ const open_post = () => {
 }
 
 const array = HTML`<div id="container">
-                      ${["post1", "post2", "post3"].map(item => HTML`<span onclick="${open_post}">${item}</span>`.container)}
+                      ${["post1", "post2", "post3"].map(item => HTML`<span onclick="${open_post}">${item}</span>`)}
                    </div>`
 
 
