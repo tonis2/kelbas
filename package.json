@@ -1,6 +1,6 @@
 {
   "name": "kelbas",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "Super small JavaScript `template-string` -> DOM creating library.",
   "main": "./build/kelbas.min.js",
   "scripts": {

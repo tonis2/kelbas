@@ -23,9 +23,7 @@ class Parser {
     this.values_map = []
     this.string = this.concat_string(strings, values)
   }
-
-  //Makes a big string from template literals strings and values, also adds ID-s and pushes {id, value} object to values_map,
-  // so we can put values to correct places in dom element.
+  //String: string, values:[Array] //
   concat_string(strings, values) {
     return strings
       .map((string, index) => {
@@ -76,6 +74,8 @@ class Parser {
   }
 
   //Adds event listeners and appends dom elements if neccesary
+
+  //container: domNode //
   place_values(container) {
     this.values_map.forEach(entry => {
       const element = container.outerHTML ? container.parentNode.querySelector(`[data-${entry.id}]`) : container.querySelector(`[data-${entry.id}]`)
@@ -103,8 +103,19 @@ class Parser {
 }
 
 function HTML(strings, ...values) {
-  return new Parser(strings, ...values)
+  return new Parser(strings, ...values).container
+}
+
+function FRAGMENT(strings, ...values) {
+  return new Parser(strings, ...values).fragment
+}
+
+function SVG(strings, ...values) {
+  return new Parser(strings, ...values).svg
 }
 
 window.HTML = HTML
-export default HTML
+window.SVG = SVG
+window.FRAGMENT = FRAGMENT
+
+export {HTML, FRAGMENT, SVG}
