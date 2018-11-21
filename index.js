@@ -7,16 +7,16 @@ const marker = () => {
 }
 
 String.prototype.html = function() {
-  let parser = new DOMParser();
-  let doc = parser.parseFromString(this, "text/html");
-  return doc.body.firstChild;
-};
+  let parser = new DOMParser()
+  let doc = parser.parseFromString(this, "text/html")
+  return doc.body.firstChild
+}
 
 String.prototype.svg = function() {
-  let parser = new DOMParser();
-  let doc = parser.parseFromString(this, "image/svg+xml");
-  return doc.documentElement;
-};
+  let parser = new DOMParser()
+  let doc = parser.parseFromString(this, "image/svg+xml")
+  return doc.documentElement
+}
 
 class Parser {
   constructor(strings, ...values) {
@@ -87,7 +87,6 @@ class Parser {
         element.addEventListener(event_type, entry.value.bind(this))
         element.removeAttribute(`on${event_type}`)
         element.removeAttribute(`data-${entry.id}`)
-        
       } else if (typeof entry.value == "object") {
         if (!entry.value.children) {
           const fragment = document.createDocumentFragment()
