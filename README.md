@@ -35,7 +35,7 @@ const click_event = () => {
   window.alert("Click event works!");
 }
 
-const list = HTML`<span onclick="${click_event}"><strong>Click me!</strong></span>
+const list = FRAGMENT`<span onclick="${click_event}"><strong>Click me!</strong></span>
                       <span>Element2</span>
                       <span>Element3</span>
                       <span>Element4</span>
@@ -43,7 +43,7 @@ const list = HTML`<span onclick="${click_event}"><strong>Click me!</strong></spa
                       <span>Element6</span>`
 
 
-document.body.appendChild(list.fragment);
+document.body.appendChild(list);
 
 ```
 
@@ -59,18 +59,18 @@ const array = HTML`<div id="container">
 
 
 
-document.body.appendChild(array.container);
+document.body.appendChild(array);
 ```
 
 ##### Creating SVG-s also possible
 ```js
 
-const circle = HTML`<svg height="100" width="100">
+const circle = SVG`<svg height="100" width="100">
                       <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
                     </svg>`;
 
 
-document.body.appendChild(circle.svg);
+document.body.appendChild(circle);
 ```
 
 ------
