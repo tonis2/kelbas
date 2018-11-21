@@ -78,23 +78,20 @@ class Parser {
   //Adds event listeners and appends dom elements if neccesary
   place_values(container) {
     this.values_map.forEach(entry => {
-      // Get the container of the value, we need to make a difference between document.fragment element and regular dom node,
-      // if container has no outherHTML that means it`s a fragment.
       const element = container.outerHTML ? container.parentNode.querySelector(`[data-${entry.id}]`) : container.querySelector(`[data-${entry.id}]`)
       if (!element) throw new Error('Warning function must be defined between parentheses for example "${calledFunction}"')
+
       if (typeof entry.value == "function") {
-        // Find onclick, onmouseover .. etc strings values so we can add event listeners to them.
         const event_type = /(on)\w+/g.exec(element.outerHTML)[0].split("on")[1]
-        // Add the event listener to the element
+
         element.addEventListener(event_type, entry.value.bind(this))
-        // Remove the on- event, required if we have multiple events on same element
         element.removeAttribute(`on${event_type}`)
         element.removeAttribute(`data-${entry.id}`)
+        
       } else if (typeof entry.value == "object") {
-        // Swap template placeholder with list object
         if (!entry.value.children) {
           const fragment = document.createDocumentFragment()
-          entry.value.forEach(child => fragment.appendChild(child))
+          fragment.append(...entry.value)
           element.replaceWith(fragment)
         } else {
           element.replaceWith(entry.value)
