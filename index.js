@@ -1,10 +1,22 @@
 // Create ID-s
-const UUID = () => {
-  let S4 = () => {
-    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
-  }
-  return "p" + (S4() + S4() + "-" + S4())
+const marker = () => {
+  return Math.random()
+    .toString(36)
+    .slice(2)
+    .padStart(10, "0")
 }
+
+String.prototype.html = function() {
+  let parser = new DOMParser();
+  let doc = parser.parseFromString(this, "text/html");
+  return doc.body.firstChild;
+};
+
+String.prototype.svg = function() {
+  let parser = new DOMParser();
+  let doc = parser.parseFromString(this, "image/svg+xml");
+  return doc.documentElement;
+};
 
 class Parser {
   constructor(strings, ...values) {
@@ -18,10 +30,10 @@ class Parser {
     return strings
       .map((string, index) => {
         const value = values[index]
-        const id = UUID()
+        const id = marker()
         switch (true) {
           case typeof value === "function":
-            string = string.concat(`"${id} `)
+            string = string.concat(`" data-${id}="`)
             this.values_map.push({
               id,
               value
@@ -29,7 +41,7 @@ class Parser {
             break
           case typeof value === "object" || (value && value.nodeType === 1):
             //Add placeholder for the list item
-            string = `${string} <template ${id}></template>`
+            string = `${string} <template data-${id}=""></template>`
             this.values_map.push({
               id,
               value
@@ -53,18 +65,14 @@ class Parser {
 
   //Returns regular dom element, but requires element to have a wrapper node
   get container() {
-    let parser = new DOMParser()
-    let doc = parser.parseFromString(this.string, "text/html")
-    return this.place_values(doc.body.firstChild)
+    return this.place_values(this.string.html())
   }
 
   // Returns SVG element
   get svg() {
-    let parser = new DOMParser()
     const container = this.container
     container.setAttribute("xmlns", "http://www.w3.org/2000/svg")
-    let doc = parser.parseFromString(container.outerHTML, "image/svg+xml")
-    return this.place_values(doc.documentElement)
+    return this.place_values(container.outerHTML.svg())
   }
 
   //Adds event listeners and appends dom elements if neccesary
@@ -72,7 +80,7 @@ class Parser {
     this.values_map.forEach(entry => {
       // Get the container of the value, we need to make a difference between document.fragment element and regular dom node,
       // if container has no outherHTML that means it`s a fragment.
-      const element = container.outerHTML ? container.parentNode.querySelector(`[${entry.id}]`) : container.querySelector(`[${entry.id}]`)
+      const element = container.outerHTML ? container.parentNode.querySelector(`[data-${entry.id}]`) : container.querySelector(`[data-${entry.id}]`)
       if (!element) throw new Error('Warning function must be defined between parentheses for example "${calledFunction}"')
       if (typeof entry.value == "function") {
         // Find onclick, onmouseover .. etc strings values so we can add event listeners to them.
@@ -81,6 +89,7 @@ class Parser {
         element.addEventListener(event_type, entry.value.bind(this))
         // Remove the on- event, required if we have multiple events on same element
         element.removeAttribute(`on${event_type}`)
+        element.removeAttribute(`data-${entry.id}`)
       } else if (typeof entry.value == "object") {
         // Swap template placeholder with list object
         if (!entry.value.children) {
