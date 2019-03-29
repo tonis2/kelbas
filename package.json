@@ -1,12 +1,12 @@
 {
   "name": "kelbas",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Super small JavaScript `template-string` -> DOM creating library.",
-  "main": "./build/kelbas.min.js",
+  "main": "./build/kelbas.esm.js",
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "format": "find ./index.js | xargs prettier  --write",
-    "test": "browserify ./tests/test.js | tape-run | tap-diff"
+    "test": "tape -r 'esm' -r './tests/setup' './tests/**/*.test.js' | tap-diff"
   },
   "repository": {
     "type": "git",
@@ -25,12 +25,12 @@
   },
   "homepage": "https://github.com/tonis2/kelbas#readme",
   "devDependencies": {
-    "browserify": "latest",
+    "browser-env": "^3.2.6",
+    "esm": "^3.0.82",
     "prettier": "1.14.3",
     "rollup": "^0.56.2",
-    "tape": "latest",
     "rollup-plugin-uglify": "^3.0.0",
     "tap-diff": "^0.1.1",
-    "tape-run": "^4.0.0"
+    "tape": "latest"
   }
 }

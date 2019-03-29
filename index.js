@@ -6,13 +6,13 @@ const marker = () => {
     .padStart(10, "0")
 }
 
-String.prototype.html = function() {
+String.prototype.html = function () {
   let parser = new DOMParser()
   let doc = parser.parseFromString(this, "text/html")
   return doc.body.firstChild
 }
 
-String.prototype.svg = function() {
+String.prototype.svg = function () {
   let parser = new DOMParser()
   let doc = parser.parseFromString(this, "image/svg+xml")
   return doc.documentElement
@@ -31,7 +31,7 @@ class Parser {
         const id = marker()
         switch (true) {
           case typeof value === "function":
-            string = string.concat(`" data-${id}="`)
+            string = string.concat(`"" data-${id}=""`)
             this.values_map.push({
               id,
               value
@@ -54,14 +54,14 @@ class Parser {
       .reduce((prev, current) => prev + current)
   }
 
-  //Returns document fragment element, doesent require wrapper
+  //Returns document fragment element, requires HTML as wrapper
   get fragment() {
     const template = document.createElement("template")
     template.innerHTML = this.string
     return this.place_values(template.content.cloneNode(true))
   }
 
-  //Returns regular dom element, but requires element to have a wrapper node
+  //Returns regular dom element
   get container() {
     return this.place_values(this.string.html())
   }
@@ -79,14 +79,13 @@ class Parser {
   place_values(container) {
     this.values_map.forEach(entry => {
       const element = container.outerHTML ? container.parentNode.querySelector(`[data-${entry.id}]`) : container.querySelector(`[data-${entry.id}]`)
-      if (!element) throw new Error('Warning function must be defined between parentheses for example "${calledFunction}"')
-
       if (typeof entry.value == "function") {
         const event_type = /(on)\w+/g.exec(element.outerHTML)[0].split("on")[1]
 
         element.addEventListener(event_type, entry.value.bind(this))
         element.removeAttribute(`on${event_type}`)
         element.removeAttribute(`data-${entry.id}`)
+
       } else if (typeof entry.value == "object") {
         if (!entry.value.children) {
           const fragment = document.createDocumentFragment()
@@ -114,8 +113,4 @@ function SVG(strings, ...values) {
   return new Parser(strings, ...values).svg
 }
 
-window.HTML = HTML
-window.SVG = SVG
-window.FRAGMENT = FRAGMENT
-
-export {HTML, FRAGMENT, SVG}
+export { HTML, FRAGMENT, SVG }
