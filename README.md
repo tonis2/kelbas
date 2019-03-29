@@ -16,8 +16,8 @@
 
 
 * Add script tagg to your HTML file.
-```HTML
-<script src="https://unpkg.com/kelbas"></script>
+```JS
+import {HTML} from "https://unpkg.com/kelbas"
 ```
 
 * Start using the library
