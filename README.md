@@ -33,7 +33,7 @@ const click_event = () => {
   window.alert("Click event works!");
 }
 
-const list = FRAGMENT`<span onclick="${click_event}"><strong>Click me!</strong></span>
+const list = FRAGMENT`<span onclick=${click_event}><strong>Click me!</strong></span>
                       <span>Element2</span>
                       <span>Element3</span>
                       <span>Element4</span>
@@ -52,7 +52,7 @@ const open_post = () => {
 }
 
 const array = HTML`<div id="container">
-                      ${["post1", "post2", "post3"].map(item => HTML`<span onclick="${open_post}">${item}</span>`)}
+                      ${["post1", "post2", "post3"].map(item => HTML`<span onclick=${open_post}>${item}</span>`)}
                    </div>`
 
 
