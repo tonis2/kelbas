@@ -20,7 +20,16 @@
 import {HTML} from "https://unpkg.com/kelbas"
 ```
 
-Or `npm i -D kelbas` && `import {HTML} from "kelbas"`
+Or 
+```JS 
+  npm i -D kelbas
+  ```
+  
+and then
+
+ ```JS 
+import {HTML} from "kelbas"
+```
 
 * Start using the library
 
