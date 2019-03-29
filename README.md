@@ -15,10 +15,12 @@
 ## How to use 
 
 
-* Add script tagg to your HTML file.
+* Add script tagg to your JS file with modules enabled.
 ```JS
 import {HTML} from "https://unpkg.com/kelbas"
 ```
+
+Or `npm i -D kelbas` && `import {HTML} from "kelbas"`
 
 * Start using the library
 
