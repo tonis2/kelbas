@@ -8,11 +8,11 @@
 
 ## Features
 
-* Small, less than 1kb
-* Includes multiple render possibilites
-  (as SVG, fragment, regular Dom).
+* Small, less than 1KB minified.
+* Includes multiple render possibilites.
+  (as SVG, Fragment, regular Dom).
 * Fast
-* Super easy to use
+* Use JSX like syntax without bundling
 
 ## How to use 
 
