@@ -3,14 +3,16 @@
 > Minimalistic JavaScript library to create DOM elements.
 
 ![gzip size](http://img.badgesize.io/https://unpkg.com/kelbas/build/kelbas.min.js?compression=gzip)
+[![Build Status](https://travis-ci.org/tonis2/kelbas.svg?branch=1.0-release)](https://travis-ci.org/tonis2/kelbas)
+
 
 ## Features
 
-* Small, less than 1kb
-* Includes multiple render possibilites
-  (as SVG, fragment, regular Dom).
+* Small, less than 1KB minified.
+* Includes multiple render possibilites.
+  (as SVG, Fragment, regular Dom).
 * Fast
-* Super easy to use
+* Use JSX like syntax without bundling
 
 ## How to use 
 
@@ -18,21 +20,17 @@
 * Add script tagg to your JS file with modules enabled.
 ```JS
 import {HTML} from "https://unpkg.com/kelbas"
-```
 
-Or 
-```JS 
+// Or
+
   npm i -D kelbas
-  ```
-  
-and then
+
+```
+After install is complete you can use.
 
  ```JS 
 import {HTML} from "kelbas"
 ```
-
-* Start using the library
-
 
 ### Examples
 
