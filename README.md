@@ -1,4 +1,4 @@
-# !(/assets/kelbas.svg?raw=true) kelbas
+# ![](/assets/kelbas.svg?raw=true) kelbas
 
 >  Minimalistic JavaScript library to create DOM elements.
 
