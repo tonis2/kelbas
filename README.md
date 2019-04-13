@@ -15,15 +15,24 @@
 ## How to use 
 
 
-* Add script tagg to your HTML file.
-```HTML
-<script src="https://unpkg.com/kelbas"></script>
+* Add script tagg to your JS file with modules enabled.
+```JS
+import {HTML} from "https://unpkg.com/kelbas"
+```
+
+Or 
+```JS 
+  npm i -D kelbas
+  ```
+  
+and then
+
+ ```JS 
+import {HTML} from "kelbas"
 ```
 
 * Start using the library
 
-
-[View live examples here!](https://tonis2.github.io/kelbas/)
 
 ### Examples
 
@@ -35,7 +44,7 @@ const click_event = () => {
   window.alert("Click event works!");
 }
 
-const list = FRAGMENT`<span onclick="${click_event}"><strong>Click me!</strong></span>
+const list = FRAGMENT`<span onclick=${click_event}><strong>Click me!</strong></span>
                       <span>Element2</span>
                       <span>Element3</span>
                       <span>Element4</span>
@@ -54,7 +63,7 @@ const open_post = () => {
 }
 
 const array = HTML`<div id="container">
-                      ${["post1", "post2", "post3"].map(item => HTML`<span onclick="${open_post}">${item}</span>`)}
+                      ${["post1", "post2", "post3"].map(item => HTML`<span onclick=${open_post}>${item}</span>`)}
                    </div>`
 
 
