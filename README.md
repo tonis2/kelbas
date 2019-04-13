@@ -26,10 +26,10 @@ import {HTML} from "https://unpkg.com/kelbas"
   npm i -D kelbas
 
 ```
-After install is complete you can use.
+After installtion is complete you can import functions from the library.
 
  ```JS 
-import {HTML} from "kelbas"
+import {HTML, SVG, FRAGMENT} from "kelbas"
 ```
 
 ### Examples
