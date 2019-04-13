@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "format": "find ./index.js | xargs prettier  --write",
-    "test": "tape -r 'esm' -r './tests/setup' './tests/**/*.test.js' | tap-diff"
+    "test": "tape -r 'esm' -r './tests/setup' './tests/**/*.test.js' | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "prettier": "1.14.3",
     "rollup": "^0.56.2",
     "rollup-plugin-uglify": "^3.0.0",
-    "tap-diff": "^0.1.1",
+    "tap-spec": "^5.0.0",
     "tape": "latest"
   }
 }
