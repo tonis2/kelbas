@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/tonis2/kelbas/assets/kelbas.png"> kelbas
+# <img src="https://raw.githubusercontent.com/tonis2/kelbas/assets/kelbas.png"> Kelbas
 
 >  Minimalistic JavaScript library to create DOM elements.
 
