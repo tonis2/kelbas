@@ -20,14 +20,13 @@
 * Add script tagg to your JS file with modules enabled.
 ```JS
 import {HTML} from "https://unpkg.com/kelbas"
-```
 
-Or 
-```JS 
+// Or
+
   npm i -D kelbas
-  ```
-  
-and then
+
+```
+After install is complete you can use.
 
  ```JS 
 import {HTML} from "kelbas"
