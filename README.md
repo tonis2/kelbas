@@ -1,6 +1,6 @@
-# kelbas
+# ![Kelbas](../assets/kelbas.svg?raw=true) kelbas
 
-> Minimalistic JavaScript library to create DOM elements.
+>  Minimalistic JavaScript library to create DOM elements.
 
 ![gzip size](http://img.badgesize.io/https://unpkg.com/kelbas/build/kelbas.min.js?compression=gzip)
 [![Build Status](https://travis-ci.org/tonis2/kelbas.svg?branch=1.0-release)](https://travis-ci.org/tonis2/kelbas)
