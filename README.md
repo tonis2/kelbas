@@ -32,9 +32,6 @@ After install is complete you can use.
 import {HTML} from "kelbas"
 ```
 
-* Start using the library
-
-
 ### Examples
 
 ----
