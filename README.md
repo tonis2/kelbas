@@ -14,6 +14,8 @@
 * Fast
 * Use JSX like syntax without bundling
 
+----
+
 ## How to use 
 
 
