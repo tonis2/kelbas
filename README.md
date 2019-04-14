@@ -1,6 +1,6 @@
 # <img src="https://raw.githubusercontent.com/tonis2/kelbas/assets/kelbas.png"> Kelbas
 
->  Minimalistic JavaScript library to create DOM elements.
+>  Write JSX like code with ES6 template-strings.
 
 ![gzip size](http://img.badgesize.io/https://unpkg.com/kelbas/build/kelbas.min.js?compression=gzip)
 [![Build Status](https://travis-ci.org/tonis2/kelbas.svg?branch=1.0-release)](https://travis-ci.org/tonis2/kelbas)
