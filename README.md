@@ -6,6 +6,8 @@
 [![Build Status](https://travis-ci.org/tonis2/kelbas.svg?branch=1.0-release)](https://travis-ci.org/tonis2/kelbas)
 
 
+#### Support matrix: ![CHROME](https://raw.githubusercontent.com/tonis2/kelbas/assets/chrome.png)<sub>61+</sub> | ![FIREFOX](https://raw.githubusercontent.com/tonis2/kelbas/assets/firefox.png)<sub>60+</sub> | ![EDGE](https://raw.githubusercontent.com/tonis2/kelbas/assets/edge.png)<sub>16+</sub>
+
 ## Features
 
 * Small, less than 1KB minified.
