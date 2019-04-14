@@ -1,10 +1,15 @@
 language: node_js
-
 node_js:
-  - 10
+- "10"
 
-after_success:
-  - if [[ $TRAVIS_NODE_VERSION == "10" ]]; then npm i -g nyc codecov; fi
-  - if [[ $TRAVIS_NODE_VERSION == "10" ]]; then nyc --exclude=tests npm test; fi
-  - if [[ $TRAVIS_NODE_VERSION == "10" ]]; then nyc report --reporter=text-lcov > coverage.lcov; fi
-  - if [[ $TRAVIS_NODE_VERSION == "10" ]]; then codecov; fi
+install:
+- npm install
+
+script:
+- npm run format
+- npm run test
+- ./node_modules/.bin/codecov
+
+cache:
+  directories:
+  - "node_modules"
