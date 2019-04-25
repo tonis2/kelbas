@@ -79,17 +79,17 @@ class Parser {
   place_values(container) {
     this.values_map.forEach(entry => {
       const element = container.outerHTML ? container.parentNode.querySelector(`[data-${entry.id}]`) : container.querySelector(`[data-${entry.id}]`)
-      if (typeof entry.value == "function") {
+      if (typeof entry.value === "function") {
         const event_type = /(on)\w+/g.exec(element.outerHTML)[0].split("on")[1]
 
-        element.addEventListener(event_type, entry.value.bind(this))
+        element.addEventListener(event_type, entry.value)
         element.removeAttribute(`on${event_type}`)
         element.removeAttribute(`data-${entry.id}`)
 
-      } else if (typeof entry.value == "object") {
+      } else if (typeof entry.value === "object") {
         if (!entry.value.children) {
           const fragment = document.createDocumentFragment()
-          fragment.append(...entry.value)
+          entry.value.forEach((entry) => fragment.append(entry.html()))
           element.replaceWith(fragment)
         } else {
           element.replaceWith(entry.value)
