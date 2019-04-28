@@ -40,3 +40,19 @@ test("Test string array children", t => {
     t.pass("Correct children created")
     t.end()
 })
+
+
+
+
+test("Test Dom array children", t => {
+    const data = ["name1", "name2"]
+
+    const element = HTML`<div id="container">
+                          ${data.map(item => HTML`<span>${item}</span>`)}
+                         </div>`
+
+    t.equal(element.children[0].innerHTML, "name1")
+    t.equal(element.children[1].innerHTML, "name2")
+    t.pass("Correct children created")
+    t.end()
+})
