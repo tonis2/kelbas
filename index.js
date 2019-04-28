@@ -6,13 +6,13 @@ const marker = () => {
     .padStart(10, "0")
 }
 
-String.prototype.html = function () {
+String.prototype.html = function() {
   let parser = new DOMParser()
   let doc = parser.parseFromString(this, "text/html")
   return doc.body.firstChild
 }
 
-String.prototype.svg = function () {
+String.prototype.svg = function() {
   let parser = new DOMParser()
   let doc = parser.parseFromString(this, "image/svg+xml")
   return doc.documentElement
@@ -85,11 +85,10 @@ class Parser {
         element.addEventListener(event_type, entry.value)
         element.removeAttribute(`on${event_type}`)
         element.removeAttribute(`data-${entry.id}`)
-
       } else if (typeof entry.value === "object") {
         if (!entry.value.children) {
           const fragment = document.createDocumentFragment()
-          entry.value.forEach((entry) => fragment.append(entry.html()))
+          entry.value.forEach(entry => fragment.append(entry instanceof HTMLElement ? entry : entry.html()))
           element.replaceWith(fragment)
         } else {
           element.replaceWith(entry.value)
