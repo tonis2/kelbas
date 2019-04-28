@@ -86,6 +86,7 @@ class Parser {
         element.removeAttribute(`on${event_type}`)
         element.removeAttribute(`data-${entry.id}`)
       } else if (typeof entry.value === "object") {
+        if (!entry.value) return null
         if (!entry.value.children) {
           const fragment = document.createDocumentFragment()
           entry.value.forEach(entry => fragment.append(entry instanceof HTMLElement ? entry : entry.html()))
