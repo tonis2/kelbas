@@ -42,7 +42,27 @@ test("Test string array children", t => {
 })
 
 
+test("Test Dom array children click event", t => {
+    const data = ["name1", "name2"]
+    let status = false
+    const update_state = () => {
+        status = true
+    }
 
+    const element = HTML`<div id="container">
+                          ${data.map(item => HTML`<span onclick=${update_state}>${item}</span>`)}
+                         </div>`
+
+    t.equal(element.children[0].innerHTML, "name1")
+    t.equal(element.children[1].innerHTML, "name2")
+    t.pass("Correct children created")
+
+    element.children[0].click()
+    t.equal(status, true)
+    t.pass("Child click event worked")
+
+    t.end()
+})
 
 test("Test Dom array children", t => {
     const data = ["name1", "name2"]
